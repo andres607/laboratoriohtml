@@ -1,0 +1,98 @@
+{
+	"name": "vscode-hcl-format",
+	"displayName": "HCL Format",
+	"description": "format HCL (HashiCorp Configuration Language)",
+	"version": "1.0.0",
+	"publisher": "fredwangwang",
+	"icon": "images/hcl.png",
+	"engines": {
+		"vscode": "^1.30.0",
+		"node": "^16.13.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fredwangwang/vscode-hcl-formatter.git"
+	},
+	"license": "MIT",
+	"categories": [
+		"Formatters"
+	],
+	"activationEvents": [
+		"onLanguage:hcl"
+	],
+	"main": "./out/src/extension",
+	"capabilities": {
+		"documentFormattingProvider": "true"
+	},
+	"keywords": [
+		"format",
+		"hcl",
+		"hashicorp",
+		"hashicorp configuration language"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "hcl",
+				"aliases": [
+					"HCL"
+				],
+				"extensions": [
+					"hcl",
+					"nomad",
+					"tf"
+				]
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "HCL Format",
+			"properties": {
+				"hclformat.hclfmt_path": {
+					"type": "string",
+					"default": "",
+					"description": "the hclfmt path. If not provided bundled hclfmt is used. (https://github.com/fredwangwang/vscode-hcl-formatter/releases)"
+				},
+				"hclformat.levant_support": {
+					"type": "boolean",
+					"default": true,
+					"description": "Experimental: supports format HCL files that have [levant](https://github.com/hashicorp/levant) syntax embeded."
+				}
+			}
+		}
+	},
+	"extensionDependencies": [
+		"mindaro-dev.file-downloader"
+	],
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"package": "tsc && ./node_modules/.bin/vsce package",
+		"publish": "tsc && ./node_modules/.bin/vsce publish",
+		"test": "./node_modules/.bin/ts-mocha --paths test/*.spec.ts"
+	},
+	"devDependencies": {
+		"@types/mocha": "^8.0.3",
+		"@types/node": "^12.12.68",
+		"@types/vscode": "^1.30.0",
+		"mocha": "^9.2.0",
+		"ts-mocha": "^7.0.0",
+		"typescript": "^4.0.3",
+		"vsce": "^2.6.3",
+		"vscode": "^1.1.37"
+	},
+	"dependencies": {
+		"@microsoft/vscode-file-downloader-api": "^1.0.1",
+		"uuid": "^8.3.1"
+	},
+	"__metadata": {
+		"id": "a201084c-690d-4a95-b8e8-6a820dd04293",
+		"publisherId": "f0bdedd9-f817-49f3-8832-e2195e2ebf84",
+		"publisherDisplayName": "fredwangwang",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1668872760384,
+		"preRelease": false
+	}
+}

@@ -1,0 +1,45 @@
+{
+	"name": "common-languages-extension-pack",
+	"publisher": "devantler",
+	"displayName": "Common Languages Extension Pack",
+	"description": "A collection of extension to support common file languages in VSCode",
+	"version": "1.0.8",
+	"icon": "resources/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/devantler/vscode.common-languages-extension-pack"
+	},
+	"engines": {
+		"vscode": "^1.58.0"
+	},
+	"categories": [
+		"Extension Packs"
+	],
+	"extensionPack": [
+		"redhat.vscode-xml",
+		"redhat.vscode-yaml",
+		"jebbs.plantuml",
+		"hashicorp.hcl",
+		"hashicorp.terraform",
+		"ecmel.vscode-html-css",
+		"esbenp.prettier-vscode",
+		"foxundermoon.shell-format",
+		"redhat.ansible",
+		"dbaeumer.vscode-eslint",
+		"golang.go",
+		"GraphQL.vscode-graphql",
+		"langium.langium-vscode",
+		"jock.svg"
+	],
+	"__metadata": {
+		"id": "2bffbd78-ad5b-4230-b4c0-e63b26e630b9",
+		"publisherId": "3ec68d32-353b-4e25-8f10-0b56f08ed437",
+		"publisherDisplayName": "devantler",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1676489039874,
+		"preRelease": false
+	}
+}

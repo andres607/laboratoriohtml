@@ -1,0 +1,104 @@
+{
+	"name": "langium-vscode",
+	"publisher": "langium",
+	"version": "1.1.0",
+	"displayName": "Langium",
+	"description": "Support for the Langium Grammar Language",
+	"homepage": "https://langium.org",
+	"categories": [
+		"Programming Languages",
+		"Other"
+	],
+	"license": "MIT",
+	"icon": "data/langium-logo.png",
+	"galleryBanner": {
+		"color": "#262626",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.67.0"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "langium",
+				"extensions": [
+					".langium"
+				],
+				"aliases": [
+					"Langium"
+				],
+				"configuration": "./data/langium.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "langium",
+				"scopeName": "source.langium",
+				"path": "./data/langium.tmLanguage.json"
+			}
+		],
+		"jsonValidation": [
+			{
+				"fileMatch": "langium-config.json",
+				"url": "./data/langium-config-schema.json"
+			}
+		],
+		"configuration": {
+			"title": "Langium",
+			"properties": {
+				"langium.build.ignorePatterns": {
+					"type": "string",
+					"default": "node_modules, out",
+					"description": "Specifies the exclusion patterns during initial workspace indexing. You will need to reload your extension afterwards."
+				}
+			}
+		}
+	},
+	"activationEvents": [
+		"onLanguage:langium"
+	],
+	"vsce": {
+		"dependencies": false
+	},
+	"main": "out/extension.js",
+	"scripts": {
+		"prepare": "npm run copy-schema",
+		"copy-schema": "shx cp ../langium-cli/langium-config-schema.json ./data",
+		"vscode:prepublish": "npm run clean && tsc --noEmit && npm run lint && node esbuild.js --minify",
+		"clean": "shx rm -rf out",
+		"build": "node esbuild.js && tsc --noEmit",
+		"watch": "node esbuild.js --watch",
+		"lint": "eslint src --ext ts"
+	},
+	"dependencies": {
+		"langium": "1.1.0",
+		"vscode-languageserver": "~8.0.2",
+		"ignore": "~5.2.4"
+	},
+	"volta": {
+		"node": "16.19.0",
+		"npm": "8.19.3"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/langium/langium",
+		"directory": "packages/langium-vscode"
+	},
+	"bugs": "https://github.com/langium/langium/issues",
+	"author": {
+		"name": "TypeFox",
+		"url": "https://www.typefox.io"
+	},
+	"__metadata": {
+		"id": "70af7c9e-d44a-4027-b150-38b9971577d1",
+		"publisherId": "e122ab77-28b8-470f-bff1-037481a0088c",
+		"publisherDisplayName": "Langium",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1676489039917,
+		"preRelease": false
+	}
+}
